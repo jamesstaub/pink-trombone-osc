@@ -141,6 +141,8 @@ var Glottis = {
             var semitone = this.semitones * local_x / this.keyboardWidth + 0.5;
             Glottis.UIFrequency = this.baseNote * Math.pow(2, semitone / 12);
             if (Glottis.intensity == 0) Glottis.smoothFrequency = Glottis.UIFrequency;
+
+
             //Glottis.UIRd = 3*local_y / (this.keyboardHeight-20);
             var t = Math.clamp(1 - local_y / (this.keyboardHeight - 28), 0, 1);
             Glottis.UITenseness = 1 - Math.cos(t * Math.PI * 0.5);
