@@ -80,7 +80,7 @@ var UI = {
 
         this.aboutButton = makeButton(460, 392, 140, 30, "about...", true);
         this.alwaysVoiceButton = makeButton(460, 428, 140, 30, "always voice", true);
-        this.autoWobbleButton = makeButton(460, 464, 140, 30, "pitch wobble", true);
+        this.autoWobbleButton = makeButton(460, 464, 140, 30, "pitch wobble", false);
 
         tractCanvas.addEventListener('touchstart', UI.startTouches);
         tractCanvas.addEventListener('touchmove', UI.moveTouches);
@@ -219,11 +219,10 @@ var UI = {
 
     buttonsHandleTouchStart: function (touch) {
         this.alwaysVoiceButton.handleTouchStart(touch);
-        alwaysVoice = this.alwaysVoiceButton.switchedOn;
+        window.alwaysVoice = this.alwaysVoiceButton.switchedOn;
         this.autoWobbleButton.handleTouchStart(touch);
-        autoWobble = this.autoWobbleButton.switchedOn;
+        window.autoWobble = this.autoWobbleButton.switchedOn;
         this.aboutButton.handleTouchStart(touch);
-
     },
 
     startTouches: function (event) {
@@ -332,7 +331,7 @@ var UI = {
         touch.index = TractUI.getIndex(touch.x, touch.y);
         touch.diameter = TractUI.getDiameter(touch.x, touch.y);
         UI.mouseTouch = touch;
-        UI.touchesWithMouse.push(touch);
+        UI.touchesWithMouse.push(touch); 
         UI.buttonsHandleTouchStart(touch);
         UI.handleTouches();
     },
@@ -358,8 +357,11 @@ var UI = {
     },
 
     handleTouches: function (event) {
-        TractUI.handleTouches();
+        Glottis.handleOSCParams();
         Glottis.handleTouches();
+        
+        TractUI.handleOSCParams();
+        TractUI.handleTouches();
     },
 
     updateTouches: function () {

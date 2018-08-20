@@ -1,4 +1,5 @@
 import UI from "../ui/ui";
+import OSCAPI from "../osc/api";
 
 var backCanvas = document.getElementById("backCanvas");
 var backCtx = backCanvas.getContext("2d");
@@ -141,6 +142,8 @@ var Glottis = {
             var semitone = this.semitones * local_x / this.keyboardWidth + 0.5;
             Glottis.UIFrequency = this.baseNote * Math.pow(2, semitone / 12);
             if (Glottis.intensity == 0) Glottis.smoothFrequency = Glottis.UIFrequency;
+
+
             //Glottis.UIRd = 3*local_y / (this.keyboardHeight-20);
             var t = Math.clamp(1 - local_y / (this.keyboardHeight - 28), 0, 1);
             Glottis.UITenseness = 1 - Math.cos(t * Math.PI * 0.5);
@@ -148,6 +151,32 @@ var Glottis = {
             this.x = this.touch.x;
             this.y = local_y + this.keyboardTop + 10;
         }
+        Glottis.isTouched = (this.touch != 0);
+    },
+
+    handleOSCParams: function(){
+        var semitone = OSCAPI.glottis.semitone;     
+        Glottis.UIFrequency = this.baseNote * Math.pow(2, semitone / 12);
+
+        Glottis.UITenseness = OSCAPI.glottis.tenseness || Glottis.UITenseness;
+        Glottis.loudness = OSCAPI.glottis.loudness || Glottis.loudness;
+
+        Glottis.vibratoAmount = OSCAPI.glottis.vibratoAmount || Glottis.vibratoAmount;
+        Glottis.vibratoFrequency = OSCAPI.glottis.vibratoFrequency || Glottis.vibratoFrequency;
+
+    },
+    handleOSCTouches: function () {
+        if (this.touch != 0 && !this.touch.alive) this.touch = 0;
+
+        if (this.touch == 0) {
+            for (var j = 0; j < UI.touchesWithMouse.length; j++) {
+                var touch = UI.touchesWithMouse[j];
+                if (!touch.alive) continue;
+                if (touch.y < this.keyboardTop) continue;
+                this.touch = touch;
+            }
+        }
+
         Glottis.isTouched = (this.touch != 0);
     },
 
@@ -190,9 +219,9 @@ var Glottis = {
         this.oldTenseness = this.newTenseness;
         this.newTenseness = this.UITenseness +
             0.1 * noise.simplex1(this.totalTime * 0.46) + 0.05 * noise.simplex1(this.totalTime * 0.36);
-        if (!this.isTouched && alwaysVoice) this.newTenseness += (3 - this.UITenseness) * (1 - this.intensity);
+        if (!this.isTouched && window.alwaysVoice) this.newTenseness += (3 - this.UITenseness) * (1 - this.intensity);
 
-        if (this.isTouched || alwaysVoice) this.intensity += 0.13;
+        if (this.isTouched || window.alwaysVoice) this.intensity += 0.13;
         else this.intensity -= 0.05;
         this.intensity = Math.clamp(this.intensity, 0, 1);
     },

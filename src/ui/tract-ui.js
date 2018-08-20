@@ -2,6 +2,7 @@ import Tract from "../audio/tract";
 import Glottis from "../audio/glottis";
 
 import UI from "./ui";
+import OSCAPI from "../osc/api";
 
 var tractCanvas = document.getElementById("tractCanvas");
 var tractCtx = tractCanvas.getContext("2d");
@@ -282,7 +283,7 @@ var TractUI = {
         //?
         this.drawText(4.5, 0.37, 'h');
 
-        if (Glottis.isTouched || alwaysVoice) {
+        if (Glottis.isTouched || window.alwaysVoice) {
             //voiced consonants
             this.drawText(31.5, fricatives, 'ʒ');
             this.drawText(36, fricatives, 'z');
@@ -413,6 +414,8 @@ var TractUI = {
     },
 
     handleTouches: function () {
+        Tract.reshapeByUI = true;
+
         if (this.tongueTouch != 0 && !this.tongueTouch.alive) this.tongueTouch = 0;
 
         if (this.tongueTouch == 0) {
@@ -485,6 +488,14 @@ var TractUI = {
                     }
                 }
             }
+        }
+    },
+    handleOSCParams: function () {
+        const diameter = OSCAPI.tract.diameter;
+        if (diameter) {
+            Tract.reshapeByUI = false;
+            Tract.diameter = diameter;
+
         }
     },
 
