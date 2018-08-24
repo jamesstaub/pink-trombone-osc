@@ -90,3 +90,12 @@ osc.on('close', () => {
         clearTimeout(interval)
     }
 });
+
+
+process.on('uncaughtException', function (err) {
+    if (err.errno === 'EADDRINUSE')
+        console.log(err.errno);
+    else
+        console.log(err);
+    // process.exit(1);
+});

@@ -9,8 +9,13 @@ The original pink trombone code is from http://dood.al/pinktrombone/
 
 See original copyright notice in `src/index.html` and `src/app.js`
 
+## Prerequisites
+`node`
+`yarn` or `npm`
+
+
 ## To Run locally
-`npm install`
+`yarn install`
 `node server.js` 
 
 

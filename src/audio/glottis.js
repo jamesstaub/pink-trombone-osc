@@ -147,6 +147,7 @@ var Glottis = {
             //Glottis.UIRd = 3*local_y / (this.keyboardHeight-20);
             var t = Math.clamp(1 - local_y / (this.keyboardHeight - 28), 0, 1);
             Glottis.UITenseness = 1 - Math.cos(t * Math.PI * 0.5);
+
             Glottis.loudness = Math.pow(Glottis.UITenseness, 0.25);
             this.x = this.touch.x;
             this.y = local_y + this.keyboardTop + 10;
@@ -158,8 +159,9 @@ var Glottis = {
         var semitone = OSCAPI.glottis.semitone;     
         Glottis.UIFrequency = this.baseNote * Math.pow(2, semitone / 12);
 
-        Glottis.UITenseness = OSCAPI.glottis.tenseness || Glottis.UITenseness;
+        Glottis.UITenseness = OSCAPI.glottis.UITenseness || Glottis.UITenseness;
         Glottis.loudness = OSCAPI.glottis.loudness || Glottis.loudness;
+        Glottis.intensity = OSCAPI.glottis.intensity || Glottis.intensity;
 
         Glottis.vibratoAmount = OSCAPI.glottis.vibratoAmount || Glottis.vibratoAmount;
         Glottis.vibratoFrequency = OSCAPI.glottis.vibratoFrequency || Glottis.vibratoFrequency;
@@ -197,7 +199,7 @@ var Glottis = {
 
     getNoiseModulator: function () {
         var voiced = 0.1 + 0.2 * Math.max(0, Math.sin(Math.PI * 2 * this.timeInWaveform / this.waveformLength));
-        //return 0.3;
+        //return 0.3;   
         return this.UITenseness * this.intensity * voiced + (1 - this.UITenseness * this.intensity) * 0.3;
     },
 
