@@ -52,10 +52,7 @@ var OSCAPI = {
         Glottis.touch = this.touch;
         Glottis.handleOSCParams();
         Glottis.handleOSCTouches();
-
-
         TractUI.handleOSCParams();
-
     },
     touch: {
         alive: false,

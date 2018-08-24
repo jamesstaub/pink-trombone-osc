@@ -9,7 +9,7 @@
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 34.0, 79.0, 1852.0, 962.0 ],
+		"rect" : [ 674.0, 80.0, 572.0, 681.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -45,7 +45,6 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 693.5, 29.0, 303.0, 27.0 ],
-					"presentation_rect" : [ 678.0, 29.0, 0.0, 0.0 ],
 					"style" : "",
 					"text" : "Interpolate between shapes"
 				}
@@ -72,7 +71,6 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 1010.5, 112.0, 150.0, 20.0 ],
-					"presentation_rect" : [ 1192.5, 43.0, 0.0, 0.0 ],
 					"style" : "",
 					"text" : "2 enter tract shape B"
 				}
@@ -276,7 +274,6 @@
 					"outlettype" : [ "", "" ],
 					"parameter_enable" : 0,
 					"patching_rect" : [ 697.5, 430.0, 287.0, 118.0 ],
-					"presentation_rect" : [ 702.5, 470.0, 0.0, 0.0 ],
 					"setminmax" : [ 0.5, 3.0 ],
 					"setstyle" : 1,
 					"size" : 44,
@@ -416,7 +413,6 @@
 					"outlettype" : [ "", "" ],
 					"parameter_enable" : 0,
 					"patching_rect" : [ 693.5, 141.0, 287.0, 118.0 ],
-					"presentation_rect" : [ 545.5, 140.0, 0.0, 0.0 ],
 					"setminmax" : [ 0.5, 3.0 ],
 					"setstyle" : 1,
 					"size" : 44,
@@ -458,7 +454,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 45.5, 460.0, 126.0, 60.0 ],
+					"patching_rect" : [ 78.5, 455.0, 129.0, 60.0 ],
 					"style" : "",
 					"text" : "send a touch alive event with each list change to activate the sound"
 				}
@@ -567,7 +563,7 @@
 									"maxclass" : "inlet",
 									"numinlets" : 0,
 									"numoutlets" : 1,
-									"outlettype" : [ "list" ],
+									"outlettype" : [ "" ],
 									"patching_rect" : [ 50.0, 40.0, 30.0, 30.0 ],
 									"style" : ""
 								}
@@ -757,7 +753,7 @@
 							"modernui" : 1
 						}
 ,
-						"rect" : [ 994.0, 79.0, 892.0, 962.0 ],
+						"rect" : [ 354.0, 79.0, 892.0, 962.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -1283,6 +1279,15 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-65", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-20", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-38", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
@@ -1392,15 +1397,6 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-20", 0 ],
-					"disabled" : 0,
-					"hidden" : 0,
-					"source" : [ "obj-7", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-65", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
 					"source" : [ "obj-7", 0 ]
