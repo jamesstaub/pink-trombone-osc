@@ -1,9 +1,11 @@
-# pink-trombone
+# pink-trombone-osc
 An OSC controllable Pink Trombone
 
+![pink trombone max msp](https://i.imgur.com/pXyg6aM.jpg)
 
 Control the amazing Pink Trombone vocal synthesizer with OSC programs such as max msp, pure data, processing etc.
 
+This project uses a node server and to server and send OSC messages (via websocket) to a modified version of the pink trombone. The purpose is to create an interface for music and media composition programs to control the instrument.
 
 The original pink trombone code is from http://dood.al/pinktrombone/
 
