@@ -158,11 +158,9 @@ var Glottis = {
     handleOSCParams: function(){
         var semitone = OSCAPI.glottis.semitone;     
         Glottis.UIFrequency = this.baseNote * Math.pow(2, semitone / 12);
-
-        Glottis.UITenseness = OSCAPI.glottis.UITenseness || Glottis.UITenseness;
         Glottis.loudness = OSCAPI.glottis.loudness || Glottis.loudness;
-        Glottis.intensity = OSCAPI.glottis.intensity || Glottis.intensity;
-
+        Glottis.intensity = OSCAPI.glottis.intensity || Glottis.intensity;        
+        Glottis.UITenseness = OSCAPI.glottis.UITenseness || Glottis.UITenseness;
         Glottis.vibratoAmount = OSCAPI.glottis.vibratoAmount || Glottis.vibratoAmount;
         Glottis.vibratoFrequency = OSCAPI.glottis.vibratoFrequency || Glottis.vibratoFrequency;
 
