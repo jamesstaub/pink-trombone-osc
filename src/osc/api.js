@@ -56,7 +56,7 @@ var OSCAPI = {
     },
     touch: {
         alive: false,
-        diameter: 3, // 0 - 4
+        diameter: 2, // 0 - 4
         // endTime: 1534610410.126,
         fricative_intensity: 0,
         // id: "mouse0.2884742858736995",

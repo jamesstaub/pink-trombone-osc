@@ -79,7 +79,7 @@ var UI = {
         this.mouseDown = false;
 
         this.aboutButton = makeButton(460, 392, 140, 30, "about...", true);
-        this.alwaysVoiceButton = makeButton(460, 428, 140, 30, "always voice", true);
+        this.alwaysVoiceButton = makeButton(460, 428, 140, 30, "always voice", false);
         this.autoWobbleButton = makeButton(460, 464, 140, 30, "pitch wobble", false);
 
         tractCanvas.addEventListener('touchstart', UI.startTouches);

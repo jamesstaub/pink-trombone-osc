@@ -85,7 +85,6 @@ osc.on('error', err => {
 
 osc.on('close', () => {
     console.log('OSC server closed')
-
     if (interval) {
         clearTimeout(interval)
     }
@@ -93,9 +92,10 @@ osc.on('close', () => {
 
 
 process.on('uncaughtException', function (err) {
-    if (err.errno === 'EADDRINUSE')
+    if (err.errno === 'EADDRINUSE') {
         console.log(err.errno);
-    else
+    }
+    else {
         console.log(err);
-    // process.exit(1);
+    }
 });

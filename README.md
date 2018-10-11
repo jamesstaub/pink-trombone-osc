@@ -7,24 +7,21 @@ Control the amazing Pink Trombone vocal synthesizer with OSC programs such as ma
 
 This project uses a node server and to server and send OSC messages (via websocket) to a modified version of the pink trombone. The purpose is to create an interface for music and media composition programs to control the instrument.
 
-The original pink trombone code is from http://dood.al/pinktrombone/
-
-See original copyright notice in `src/index.html` and `src/app.js`
-
 ## Prerequisites
-`node`
-`yarn` or `npm`
+- `node`
+- `yarn` or `npm`
 
 
 ## To Run locally
-`yarn install`
-`node server.js` 
+- `yarn install`
+- `node server.js`
 
 
 ## To develop
-`npm start` to watch files
+- npm start to watch files
+- view app in browser at localhost:3000
 
-view app at localhost:3000
+#credits
 
-
-<!-- npm run start:dev to runserver -->
+The original pink trombone code is from http://dood.al/pinktrombone/
+See original copyright notice in `src/index.html` and `src/app.js`

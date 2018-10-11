@@ -1,3 +1,7 @@
+// TODO:
+// replace deprecated scriptProcessor with AudioWorklet
+// https://github.com/GoogleChromeLabs/web-audio-samples/blob/gh-pages/audio-worklet/basic/js/noise-generator.js
+
 import Glottis from "./glottis";
 import Tract from "./tract";
 
@@ -66,7 +70,7 @@ var AudioSystem = {
             var glottalOutput = Glottis.runStep(lambda1, inputArray1[j]);
 
             var vocalOutput = 0;
-            //Tract runs at twice the sample rate 
+            //Tract runs at twice the sample rate
             Tract.runStep(glottalOutput, inputArray2[j], lambda1);
             vocalOutput += Tract.lipOutput + Tract.noseOutput;
             Tract.runStep(glottalOutput, inputArray2[j], lambda2);
