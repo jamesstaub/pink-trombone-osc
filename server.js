@@ -2,7 +2,7 @@ const OSC = require('osc-js')
 const express = require('express')
 
 const HTTP_SERVER_PORT = 3000
-const WS_SERVER_PORT = 9000
+const WS_SERVER_PORT = 9999
 const UDP_SERVER_PORT = 41234
 
 

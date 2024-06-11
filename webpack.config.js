@@ -4,39 +4,39 @@ const webpack = require('webpack'); //to access built-in plugins
 const path = require('path');
 
 const config = {
-    entry: './src/app.js',
-    mode: 'development',
-    output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: 'pink-trombone.js'
-    },
-    module: {
-        rules: [{
-            test: /\.js$/,
-            exclude: /(node_modules|bower_components)/,
-            use: {
-                loader: 'babel-loader',
-                options: {
-                    presets: ['@babel/preset-env']
-                }
-            }
-        }]
-    },
-    optimization: {
-        minimizer: [
-            new UglifyJsPlugin()
-        ]
-    },
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: 'src/index.html'
-        })
-    ],
-    resolve: {
-        alias: {
-            'osc-js': path.resolve(__dirname, 'node_modules/osc-js/lib/osc.browser.js'),
+  entry: './src/app.js',
+  mode: 'development',
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'pink-trombone.js',
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env'],
+          },
         },
+      },
+    ],
+  },
+  optimization: {
+    minimizer: [new UglifyJsPlugin()],
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: 'src/index.html',
+    }),
+  ],
+  resolve: {
+    alias: {
+      'osc-js': path.resolve(__dirname, 'node_modules/osc-js/lib/osc.min.js'),
     },
+  },
 };
 
 module.exports = config;

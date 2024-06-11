@@ -9,7 +9,7 @@ var OSCAPI = {
     
     init() {
         this.osc.open({
-            port: 9000
+            port: 9999
         });
         
         this.bindTouch();
@@ -19,7 +19,7 @@ var OSCAPI = {
 
         window.onunload = () => {
             this.osc.close({
-                port: 9000
+                port: 9999
             });
             return true;
         }
