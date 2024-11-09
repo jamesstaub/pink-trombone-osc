@@ -4,9 +4,7 @@
   "description": "osc controlled pink trombone",
   "main": "index.js",
   "scripts": {
-    "start": "webpack --watch",
-    "start:dev": "webpack-dev-server",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rollup -c rollup.config.js"
   },
   "repository": {
     "type": "git",
@@ -35,6 +33,7 @@
   "dependencies": {
     "@babel/preset-env": "^7.0.0-rc.1",
     "@babel/runtime": "^7.24.7",
+    "rollup": "^4.9.1",
     "osc-js": "^2.4.1",
     "regenerator-runtime": "^0.14.1"
   }

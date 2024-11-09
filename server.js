@@ -9,7 +9,8 @@ const UDP_SERVER_PORT = 41234
 // Express server for static file hosting
 const app = express()
 
-app.use('/', express.static('dist'))
+// app.use('/', express.static('dist'))
+app.use('/', express.static('../pink-Trombone'))
 
 app.listen(HTTP_SERVER_PORT, () => {
     console.log('HTTP server ready')
