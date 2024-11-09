@@ -1,3 +1,19 @@
+# Pink Trombone in Max MSP vis OSC
+
+[Demo video](https://www.youtube.com/watch?v=2rSIa1-CUTI&feature=youtu.be)
+
+
+Control the amazing Pink Trombone vocal synthesizer with OSC programs such as max msp, pure data, processing etc.
+
+This project uses a node server and to server and send OSC messages (via websocket) to a modified version of the pink trombone. The purpose is to create an interface for music and media composition programs to control the instrument.
+
+
+This version uses the fantastic re-write of the original PT code by https://github.com/zakaton/Pink-Trombone which refactored the original by (Neil Thapen) to use web audio worklets rather than the ScriptProcessorNode which resulted in performance issues.
+
+Thanks to the Max 9's jweb~ object we can now embed PT right in the max patch and pipe the audio wherever you want.
+
+
+
 <a href="https://twitter.com/ConcreteSciFi/status/1138555909133594624" target="_blank">![Fabien](images/pinkTrombone.gif)</a><br>
 _Sound is generated in the glottis (at the bottom left), then filtered by the shape of the vocal tract. The voicebox controls the pitch and intensity of the initial sound_ - [Neil Thapen](http://venuspatrol.nfshost.com/)
 
